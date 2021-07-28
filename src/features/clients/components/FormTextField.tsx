@@ -6,7 +6,12 @@ import { TextFieldProps } from "@material-ui/core/TextField/TextField";
 const FormTextField = (props: FieldAttributes<TextFieldProps>) => {
   const [field, meta] = useField(props);
   return (
-    <TextField {...field} {...props} error={meta.touched && !!meta.error} />
+    <TextField
+      margin="normal"
+      {...field}
+      {...props}
+      error={meta.touched && !!meta.error}
+    />
   );
 };
 

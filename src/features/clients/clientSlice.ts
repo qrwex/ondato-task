@@ -9,18 +9,18 @@ export interface Client {
   address: string;
 }
 
-export interface ClientsState {
+export interface ClientState {
   all: {
     [k in string]: Client;
   };
 }
 
-const initialState: ClientsState = {
+const initialState: ClientState = {
   all: {},
 };
 
-export const clientsSlice = createSlice({
-  name: "clients",
+export const clientSlice = createSlice({
+  name: "client",
   initialState,
   reducers: {
     // Redux Toolkit allows us to write "mutating" logic in reducers. It
@@ -42,8 +42,8 @@ export const clientsSlice = createSlice({
   },
 });
 
-export const { add, del, update } = clientsSlice.actions;
+export const { add, del, update } = clientSlice.actions;
 
-export const selectAll = (state: RootState) => state.clients.all;
+export const selectAll = (state: RootState) => state.client.all;
 
-export default clientsSlice.reducer;
+export default clientSlice.reducer;

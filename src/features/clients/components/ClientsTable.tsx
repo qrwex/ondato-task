@@ -7,7 +7,7 @@ import {
   TableRow,
 } from "@material-ui/core";
 import EditIcon from "@material-ui/icons/Edit";
-import { selectAll } from "../clientsSlice";
+import { selectAll } from "../clientSlice";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { useAppSelector } from "../../../app/hooks";
 import { FC } from "react";

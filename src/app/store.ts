@@ -9,10 +9,10 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import clientsReducer from "../features/clients/clientsSlice";
+import clientReducer from "../features/clients/clientSlice";
 
 const rootReducer = combineReducers({
-  clients: clientsReducer,
+  client: clientReducer,
 });
 
 const persistConfig = {

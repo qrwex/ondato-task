@@ -1,16 +1,8 @@
 import { useAppDispatch } from "../../app/hooks";
-import { add, Client, del, update } from "./clientsSlice";
-import {
-  Box,
-  Button,
-  Container,
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  Typography,
-} from "@material-ui/core";
+import { del } from "./clientSlice";
+import { Box, Button, Container, Typography } from "@material-ui/core";
 import { useState } from "react";
-import { ClientForm } from "./components/ClientForm";
+import { ClientFormDialog } from "./components/ClientFormDialog";
 import { ClientsTable } from "./components/ClientsTable";
 
 export function ClientsFeature() {
@@ -35,11 +27,6 @@ export function ClientsFeature() {
     setId(null);
   };
 
-  const handleSubmit = (client: Client) => {
-    dispatch(id ? update({ id, client }) : add(client));
-    handleClose();
-  };
-
   return (
     <Container maxWidth="md">
       <Typography variant="h3">Clients</Typography>
@@ -49,12 +36,7 @@ export function ClientsFeature() {
         </Button>
       </Box>
       <ClientsTable onDelete={handleDelete} onModify={handleModify} />
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>{id ? "Edit" : "Add"}</DialogTitle>
-        <DialogContent>
-          <ClientForm onSubmit={handleSubmit} id={id} />
-        </DialogContent>
-      </Dialog>
+      <ClientFormDialog open={open} onClose={handleClose} id={id} />
     </Container>
   );
 }
