@@ -1,1 +1,1 @@
-export {ClientsFeature} from './ClientsFeature';
+export { ClientsFeature } from "./ClientsFeature";

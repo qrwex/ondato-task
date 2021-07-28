@@ -1,14 +1,22 @@
-import {configureStore, combineReducers} from '@reduxjs/toolkit';
-import {persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER} from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-import clientsReducer from '../features/clients/clientsSlice';
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import {
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import clientsReducer from "../features/clients/clientsSlice";
 
 const rootReducer = combineReducers({
   clients: clientsReducer,
 });
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   version: 1,
   storage,
 };

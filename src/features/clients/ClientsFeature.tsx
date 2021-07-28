@@ -1,5 +1,5 @@
-import {useAppDispatch} from '../../app/hooks';
-import {add, Client, del, update} from './clientsSlice';
+import { useAppDispatch } from "../../app/hooks";
+import { add, Client, del, update } from "./clientsSlice";
 import {
   Box,
   Button,
@@ -8,10 +8,10 @@ import {
   DialogContent,
   DialogTitle,
   Typography,
-} from '@material-ui/core';
-import {useState} from 'react';
-import {ClientForm} from './components/ClientForm';
-import {ClientsTable} from './components/ClientsTable';
+} from "@material-ui/core";
+import { useState } from "react";
+import { ClientForm } from "./components/ClientForm";
+import { ClientsTable } from "./components/ClientsTable";
 
 export function ClientsFeature() {
   const dispatch = useAppDispatch();
@@ -34,31 +34,26 @@ export function ClientsFeature() {
   };
 
   const handleSubmit = (client: Client) => {
-    dispatch(
-      id ?
-        update({id, client}) :
-        add(client),
-    );
+    dispatch(id ? update({ id, client }) : add(client));
     handleClose();
   };
 
   return (
     <Container maxWidth="md">
-      <Typography variant="h3">
-        Clients
-      </Typography>
+      <Typography variant="h3">Clients</Typography>
       <Box mt={2} mb={2} justifyContent="flex-end" display="flex">
         <Button variant="contained" color="primary" onClick={handleOpen}>
           Add new
         </Button>
       </Box>
-      <ClientsTable onDelete={(id) => dispatch(del(id))} onModify={handleModify}/>
+      <ClientsTable
+        onDelete={(id) => dispatch(del(id))}
+        onModify={handleModify}
+      />
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>
-          {id ? 'Edit' : 'Add'}
-        </DialogTitle>
+        <DialogTitle>{id ? "Edit" : "Add"}</DialogTitle>
         <DialogContent>
-          <ClientForm onSubmit={handleSubmit} id={id}/>
+          <ClientForm onSubmit={handleSubmit} id={id} />
         </DialogContent>
       </Dialog>
     </Container>
