@@ -47,29 +47,29 @@ export const ClientFormDialog: FC<ClientFormProps> = ({
 
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>{id ? "Edit" : "Add"}</DialogTitle>
-      <DialogContent>
-        <Formik<Client>
-          initialValues={(id && clients[id]) || initialValues}
-          validationSchema={validationSchema}
-          onSubmit={handleSubmit}
-        >
-          <Form>
+      <Formik<Client>
+        initialValues={(id && clients[id]) || initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
+      >
+        <Form>
+          <DialogTitle>{id ? "Edit" : "Add"}</DialogTitle>
+          <DialogContent>
             <FormTextField fullWidth label="First name" name="firstName" />
             <FormTextField fullWidth label="Last name" name="lastName" />
             <FormTextField fullWidth label="Phone number" name="phoneNumber" />
             <FormTextField fullWidth label="Address" name="address" />
-          </Form>
-        </Formik>
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={onClose} color="primary">
-          Cancel
-        </Button>
-        <Button type="submit" color="primary">
-          Save
-        </Button>
-      </DialogActions>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={onClose} color="primary">
+              Cancel
+            </Button>
+            <Button type="submit" color="primary">
+              Save
+            </Button>
+          </DialogActions>
+        </Form>
+      </Formik>
     </Dialog>
   );
 };

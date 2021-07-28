@@ -31,7 +31,7 @@ export function ClientsFeature() {
     <Container maxWidth="md">
       <Typography variant="h3">Clients</Typography>
       <Box mt={2} mb={2} justifyContent="flex-end" display="flex">
-        <Button variant="contained" color="primary" onClick={handleOpen}>
+        <Button variant="outlined" color="primary" onClick={handleOpen}>
           Add new
         </Button>
       </Box>
