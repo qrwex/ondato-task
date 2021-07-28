@@ -23,6 +23,8 @@ export function ClientsFeature() {
     setOpen(true);
   };
 
+  const handleDelete = (id: string) => dispatch(del(id));
+
   const handleModify = (id: string) => {
     setId(id);
     setOpen(true);
@@ -46,10 +48,7 @@ export function ClientsFeature() {
           Add new
         </Button>
       </Box>
-      <ClientsTable
-        onDelete={(id) => dispatch(del(id))}
-        onModify={handleModify}
-      />
+      <ClientsTable onDelete={handleDelete} onModify={handleModify} />
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>{id ? "Edit" : "Add"}</DialogTitle>
         <DialogContent>
