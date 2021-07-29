@@ -6,9 +6,8 @@ import {
   TableHead,
   TableRow,
 } from "@material-ui/core";
-import EditIcon from "@material-ui/icons/Edit";
+import { Edit, Delete } from "@material-ui/icons";
 import { selectAll } from "../clientSlice";
-import DeleteIcon from "@material-ui/icons/Delete";
 import { useAppSelector } from "../../../app/hooks";
 import { FC } from "react";
 
@@ -43,10 +42,10 @@ export const ClientsTable: FC<ClientsTableProps> = ({ onDelete, onModify }) => {
               <TableCell>{address}</TableCell>
               <TableCell align="right">
                 <IconButton aria-label="edit" onClick={() => onModify(id)}>
-                  <EditIcon />
+                  <Edit />
                 </IconButton>
                 <IconButton aria-label="delete" onClick={() => onDelete(id)}>
-                  <DeleteIcon />
+                  <Delete />
                 </IconButton>
               </TableCell>
             </TableRow>
