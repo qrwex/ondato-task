@@ -9,8 +9,9 @@ import {
 } from "@material-ui/core";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { add, Client, selectAll, update } from "../clientSlice";
-import FormTextField from "./FormTextField";
+import { FormTextField } from "./FormTextField";
 import { object, string } from "yup";
+import { FormAddressField } from "./FormAddressField";
 
 export interface ClientFormProps {
   id?: string | null;
@@ -55,10 +56,10 @@ export const ClientFormDialog: FC<ClientFormProps> = ({
         <Form>
           <DialogTitle>{id ? "Edit" : "Add"}</DialogTitle>
           <DialogContent>
-            <FormTextField fullWidth label="First name" name="firstName" />
-            <FormTextField fullWidth label="Last name" name="lastName" />
-            <FormTextField fullWidth label="Phone number" name="phoneNumber" />
-            <FormTextField fullWidth label="Address" name="address" />
+            <FormTextField label="First name" name="firstName" />
+            <FormTextField label="Last name" name="lastName" />
+            <FormTextField label="Phone number" name="phoneNumber" />
+            <FormAddressField label="Address" name="address" />
           </DialogContent>
           <DialogActions>
             <Button onClick={onClose} color="primary">

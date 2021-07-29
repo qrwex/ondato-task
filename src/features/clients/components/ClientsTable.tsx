@@ -12,7 +12,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import { useAppSelector } from "../../../app/hooks";
 import { FC } from "react";
 
-interface ClientsTableProps {
+export interface ClientsTableProps {
   onDelete: (id: string) => void;
   onModify: (id: string) => void;
 }
